@@ -11,27 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :Username %>
-    <%= f.text_field :Username %>
-  </div>
+    <h5>Username</h5>
+    <%= f.text_field :Username, :class => 'form-group', :style => 'width: 50%; height:40px' %>
 
-  <div class="field">
-    <%= f.label :Password %>
-    <%= f.text_field :Password %>
-  </div>
+    <h5>Password</h5>
+    <%= f.text_field :Password, :class => 'form-group', :style => 'width: 50%; height:40px' %> 
 
-  <div class="field">
-    <%= f.label :Name %>
-    <%= f.text_field :Name %>
-  </div>
+    <h5>Your name</h5>
+    <%= f.text_field :Name, :class => 'form-group', :style => 'width: 50%; height:40px' %>
 
-  <div class="field">
-    <%= f.label :avatar %>
-    <%= f.text_field :avatar %>
-  </div>
+    <h5>Avatar</h5>
+    <%= f.text_field :avatar, :class => 'form-group', :style => 'width: 50%; height:40px'%>
 
   <div class="actions">
-    <%= f.submit %>
+      <%= f.submit 'Submit' , :class => 'btn btn-success' %>
+      <%= link_to 'Back', users_path, :class => 'btn btn-info' %>
   </div>
 <% end %>
