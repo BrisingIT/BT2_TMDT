@@ -1,17 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-	<img src="<%= @user.avatar %>" class="img-rounded" alt="Cinque Terre" width="304" height="236">
-	<div class="alert alert-info" style="width:40%">
-		<strong>Username:</strong>
-		<%= @user.Username %>
+<div class="row">
+	<div class="col-lg-4">
+		<img src="<%= @user.avatar %>" class="img-rounded" alt="Cinque Terre" style="width:100%; margin-top: 15px;">
 	</div>
-
-	<div class="alert alert-info" style="width:40%">
-		<strong>Name:</strong>
-		<%= @user.Name %>
+	<div class="col-lg-8">
+		<div class="alert alert-info" style="width:50%">
+			<strong>Username:</strong>
+			<%= @user.Username %>
+		</div>
+		<div class="alert alert-info" style="width:50%">
+			<strong>Name:</strong>
+			<%= @user.Name %>
+		</div>
+		<div class="alert alert-info" style="width:50%">
+			<strong>Birth:</strong>
+			<%= @user.birth %>
+		</div>
+		<div class="alert alert-info" style="width:50%">
+			<strong>From:</strong>
+			<%= @user.from %>
+		</div>
+		<div class="alert alert-info" style="width:50%">
+			<strong>Work at:</strong>
+			<%= @user.work_at %>
+		</div>
 	</div>
-
+</div>
+<br>
+<div>
 	<%= link_to 'Edit', edit_user_path(@user), :class => 'btn btn-success' %>
 	<%= link_to 'Back', users_path, :class => 'btn btn-primary' %>
+</div>
 </div>

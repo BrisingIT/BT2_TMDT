@@ -10,19 +10,32 @@
       </ul>
     </div>
   <% end %>
+  <div class="row">
+    <div class="col-lg-6">
+      <h5>Username</h5>
+      <%= f.text_field :Username, :class => 'form-group', :style => 'width: 70%; height:40px' %>
 
-    <h5>Username</h5>
-    <%= f.text_field :Username, :class => 'form-group', :style => 'width: 50%; height:40px' %>
+      <h5>Password</h5>
+      <%= f.text_field :Password, :class => 'form-group', :style => 'width: 70%; height:40px' %> 
 
-    <h5>Password</h5>
-    <%= f.text_field :Password, :class => 'form-group', :style => 'width: 50%; height:40px' %> 
+      <h5>Your name</h5>
+      <%= f.text_field :Name, :class => 'form-group', :style => 'width: 70%; height:40px' %>
 
-    <h5>Your name</h5>
-    <%= f.text_field :Name, :class => 'form-group', :style => 'width: 50%; height:40px' %>
+      <h5>Birth</h5>
+      <%= f.text_field :birth, :class => 'form-group', :style => 'width: 70%; height:40px'%>
+    </div>
+    <div class="col-lg-6">
+      <h5>From</h5>
+      <%= f.text_field :from, :class => 'form-group', :style => 'width: 70%; height:40px'%>
 
-    <h5>Avatar</h5>
-    <%= f.text_field :avatar, :class => 'form-group', :style => 'width: 50%; height:40px'%>
+      <h5>Word at</h5>
+      <%= f.text_field :work_at, :class => 'form-group', :style => 'width: 70%; height:40px'%>
 
+      <h5>Avatar</h5>
+      <%= f.text_field :avatar, :class => 'form-group', :style => 'width: 70%; height:40px'%>
+    </div>
+  </div>
+    
   <div class="actions">
       <%= f.submit 'Submit' , :class => 'btn btn-success' %>
       <%= link_to 'Back', users_path, :class => 'btn btn-info' %>
