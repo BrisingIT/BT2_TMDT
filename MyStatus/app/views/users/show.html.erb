@@ -1,24 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.Username %>
-</p>
+<div class="container">
+	<img src="<%= @user.avatar %>" class="img-rounded" alt="Cinque Terre" width="304" height="236">
+	<div class="alert alert-info" style="width:40%">
+		<strong>Username:</strong>
+		<%= @user.Username %>
+	</div>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.Password %>
-</p>
+	<div class="alert alert-info" style="width:40%">
+		<strong>Name:</strong>
+		<%= @user.Name %>
+	</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.Name %>
-</p>
-
-<p>
-  <strong>Avatar:</strong>
-  <%= @user.avatar %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+	<%= link_to 'Edit', edit_user_path(@user), :class => 'btn btn-success' %>
+	<%= link_to 'Back', users_path, :class => 'btn btn-primary' %>
+</div>

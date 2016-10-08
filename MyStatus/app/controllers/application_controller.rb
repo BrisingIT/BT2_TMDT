@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authorize
+  # before_action :authorize
 	def current_user
 		@users ||= User.find(session[:current_user_id]) if session[:current_user_id]
 	end
