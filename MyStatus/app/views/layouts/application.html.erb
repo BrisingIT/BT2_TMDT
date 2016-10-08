@@ -26,9 +26,11 @@
         <%= link_to 'login', login_path, class: "btn btn-outline-success pull-xs-right", style: "margin-left:10px"%>
       <% else %>
         <%= link_to 'logout',logout_path, class: "btn btn-outline-success pull-xs-right", style: "margin-left:10px"%>
-        <%= link_to 'PhatNguyen',info_path, class: "btn btn-outline-success pull-xs-right", style: "margin-left:10px"%>
+        <%= link_to 'User',info_path, class: "btn btn-outline-success pull-xs-right", style: "margin-left:10px"%>
       <% end %>
   </nav>
+  <br>
+  <br>
   <div class="container" <%=controller_name%> <%=action_name%>>
     <%= yield %>
   </div>
