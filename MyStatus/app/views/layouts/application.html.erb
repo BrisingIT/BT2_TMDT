@@ -21,10 +21,23 @@
         <%= link_to 'About', about_path, class: "nav-item nav-link #{yield(:about_active)}" %>
         <%= link_to 'Contact', contact_path, class: "nav-item nav-link #{yield(:contact_active)}" %>
       </div>
+      <% if(session[:current_user_id]==nil) %>
         <%= link_to 'Register',register_path, class: "btn btn-outline-success pull-xs-right", style: "margin-left:10px"%>
         <a href="#" class="btn btn-outline-success pull-xs-right" style="margin-left:10px">Login</a>
+      <% else %>
+        <div class="media" style="margin-left: 1000px">
+          <div class="media-right">
+            <img src="#" class="media-object" style="width:30px">
+          </div>
+          <div class="media-body">
+            <h5 class="media-heading" style="margin-left: 5px">John Doe</h>
+          </div>
+        </div>
+        <%= link_to 'logout',logout_path, class: "btn btn-outline-success pull-xs-right", style: "margin-left:10px"%>
+      <% end %>
   </nav>
   <div class="container" <%=controller_name%> <%=action_name%>>
+    <%= session[:current_user_id]%>
     <%= yield %>
   </div>
 </body>
