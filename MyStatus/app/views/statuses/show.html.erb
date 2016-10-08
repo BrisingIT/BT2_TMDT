@@ -1,0 +1,33 @@
+
+    <div class="col-sm-7">
+    
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="panel panel-default text-left">
+            <div class="panel-body">
+              <p contenteditable="true" style="padding-left: 2px;">Status: Feeling Blue</p>
+              <button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Like
+              </button>     
+            </div>
+          </div>
+        </div>
+      </div>
+      
+<div class="row">
+    	<div class="col-sm-3">
+         <div>
+         <p class="text-xs-center">Anja</p>
+ 		 <img src="bird.jpg" class="img-circle" style="margin-left: 35px; margin-bottom: 10px;" height="55" width="55" alt="Avatar" >
+         </div>
+       </div>
+    <div class="col-sm-9">
+        <div class="well">
+          <p><%= @status.content %></p>
+        </div>
+    </div>
+</div>     
+</div>
+
+<%= link_to 'Edit', edit_status_path(@status) %> |
+<%= link_to 'Back', statuses_path %>

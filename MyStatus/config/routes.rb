@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :statuses
   get 'sessions' => 'sessions#create', as: :create
 
   get 'sessions/destroy'
