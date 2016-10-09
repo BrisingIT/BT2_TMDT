@@ -1,6 +1,36 @@
-<div class="card">
-        <td><%= status.content %></td>
-        <td><%= link_to 'Show', status %></td>
-        <td><%= link_to 'Edit', edit_status_path(status) %></td>
-        <td><%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<div class="row card">
+        <p><%= status.content %></p>
+        <p class="pull-xs-right"><%= link_to 'Edit', edit_status_path(status) %> |
+        <%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
+
+        <h5 class="text-muted">Comments</h5>
+		<% @status.comments.each do |comment| %>
+		    <div class="alert alert-success" role="alert" style="padding-top: 10px; padding-bottom: 10px;">
+		      <strong>Your comment: </strong> <%= comment.body %>
+		      <div class="text-xs-right">
+		        <%= link_to 'Delete',[comment.blog, comment], method: :delete, data: { confirm: 'Do you want destroy?' },class: 'btn btn-danger', style: 'padding: 2px 10px;'%>
+		      </div>
+		    </div>
+		    <div>
+		    
+		    
+		    </div>
+		<% end %>
+
+
+
+		<h5 class="text-muted">Add Comments</h5>
+
+		<%= form_for([@status, @status.comments.build]) do |f| %>
+
+		  <p>
+		    <%= f.text_area :body, size:"100x3" %>
+		  </p>
+		  
+		  <p>
+		  <%= f.submit 'Comment', :class => 'btn btn-success' %>
+		  <%= link_to 'Back', blogs_path, class: 'btn btn-info' %>
+		  </p>
+		<% end %>
 </div>
