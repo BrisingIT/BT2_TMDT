@@ -15,6 +15,7 @@ class StatusesController < ApplicationController
 
   # GET /statuses/new
   def new
+    @statuses = Status.all
     @status = Status.new
   end
 
@@ -25,11 +26,13 @@ class StatusesController < ApplicationController
   # POST /statuses
   # POST /statuses.json
   def create
+#    @status = Status.new(params[:article].merge(:user_id => current_user.id))
+#    params[:user_id] = session[:current_user_id].to_f
     @status = Status.new(status_params)
-
+    @status.user_id= current_user.id
     respond_to do |format|
       if @status.save
-        format.html { redirect_to @status, notice: 'Status was successfully created.' }
+        format.html { redirect_to new_status_path, notice: 'Status was successfully created.' }
         format.json { render :show, status: :created, location: @status }
       else
         format.html { render :new }
