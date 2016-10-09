@@ -1,0 +1,23 @@
+<div class="container" style="margin-bottom: 10px;">
+  <%= form_for(status) do |f| %>
+  <% if status.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</h2>
+
+      <ul>
+      <% status.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group" style="margin-left: 300px;">
+    <%= f.text_area :content, :class => 'form-group', size: '50x3', :style =>'margin-bottom: 0px;' %>
+  </div>
+
+  <div class="actions">
+      <%= f.submit 'Submit' , :class => 'btn btn-primary pull-xs-right', :style =>"margin-right: 330px;" %>
+  </div>
+<% end %>
+</div>
