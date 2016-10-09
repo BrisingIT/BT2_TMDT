@@ -1,4 +1,5 @@
 class StatusesController < ApplicationController
+  before_action :authorize
   before_action :set_status, only: [:show, :edit, :update, :destroy]
 
   # GET /statuses
@@ -64,7 +65,7 @@ class StatusesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_status
-      @status = Status.find(params[:id])
+      @status = Status.find_by(user_id: session[:current_user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

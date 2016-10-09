@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-	has_many :status, :dependent => destroy
+	has_many :status
 end

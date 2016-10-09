@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :statuses
+  resources :statuses do
+    resources :comments
+  end
   get 'sessions' => 'sessions#create', as: :create
 
   get 'sessions/destroy'
