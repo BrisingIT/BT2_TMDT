@@ -1,6 +1,6 @@
 class StatusesController < ApplicationController
-  before_action :authorize
   before_action :set_status, only: [:show, :edit, :update, :destroy]
+  before_action :authorize
 
   # GET /statuses
   # GET /statuses.json
@@ -15,7 +15,7 @@ class StatusesController < ApplicationController
 
   # GET /statuses/new
   def new
-    @statuses = Status.all
+    @statuses = Status.all.order('statuses.created_at desc').where("statuses.user_id=1")
     @status = Status.new
   end
 
@@ -26,8 +26,6 @@ class StatusesController < ApplicationController
   # POST /statuses
   # POST /statuses.json
   def create
-#    @status = Status.new(params[:article].merge(:user_id => current_user.id))
-#    params[:user_id] = session[:current_user_id].to_f
     @status = Status.new(status_params)
     @status.user_id= current_user.id
     respond_to do |format|
@@ -68,7 +66,7 @@ class StatusesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_status
-      @status = Status.find_by(user_id: session[:current_user_id])
+      @status = Status.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

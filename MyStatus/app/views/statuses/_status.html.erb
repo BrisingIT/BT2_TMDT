@@ -1,11 +1,22 @@
 <div class="row card">
 	<div class="container">
-		<p><%= status.user_id%></p>
-        <p class="container"><%= status.content %></p>
-        <p class="pull-xs-right" style="margin-right: 5px; margin-bottom: 5px;">
+        <%@user = User.find(status.user_id)%>
+                <p><%= @user.Username%>
+                <p class="container"><%= status.content %></p>
+                <p class="pull-xs-right" style="margin-right: 5px; margin-bottom: 5px;">
+                <%= link_to 'Edit', edit_status_path(status), class: 'btn btn-primary', style: 'padding: 2px 10px;'%>
+                <a type="button" class="btn btn-info btn-xs" style="padding: 2px 10px;" data-toggle="modal" data-target="#myModal">Comment</a>
+                <%= link_to 'Delete', status, method: :delete, data: { confirm: 'Do you want destroy?' }, class: 'btn btn-danger', style: 'padding: 2px 10px;'%>
 
-        <%= link_to 'Edit', edit_status_path(status), class: 'btn btn-primary', style: 'padding: 2px 10px;'%>
-        <%= link_to 'Delete', status, method: :delete, data: { confirm: 'Do you want destroy?' }, class: 'btn btn-danger', style: 'padding: 2px 10px;'%>
-        </p>
+                </p>
 	</div>
+
+        <% @status.comments.each do |comment| %>
+            <div class="alert alert-success" role="alert" style="padding-top: 10px; padding-bottom: 10px;">
+              <strong>Your comment: </strong> <%= comment.body %>
+              <div class="text-xs-right">
+                <%= link_to 'Delete',[comment.blog, comment], method: :delete, data: { confirm: 'Do you want destroy?' },class: 'btn btn-danger', style: 'padding: 2px 10px;'%>
+              </div>
+            </div>
+        <% end %>
 </div>

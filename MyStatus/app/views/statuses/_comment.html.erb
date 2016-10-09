@@ -1,0 +1,23 @@
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <%= form_for([@status, @status.comments.build]) do |f| %>
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Comment</h4>
+        </div>
+        <div class="modal-body">
+          <p><%= f.text_area :body, size:"100x3" %></p>
+        </div>
+        <div class="modal-footer">
+          <p><%= f.submit 'Comment', :class => 'btn btn-success' %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>

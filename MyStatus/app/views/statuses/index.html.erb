@@ -10,6 +10,7 @@
   <tbody>
     <% @statuses.each do |status| %>
       <tr>
+        <td><%= status.id %></td>
         <td><%= status.content %></td>
         <td><%= status.user_id %></td>
         <td><%= link_to 'Show', status %></td>
