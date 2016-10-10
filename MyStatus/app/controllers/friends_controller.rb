@@ -1,7 +1,7 @@
 class FriendsController < ApplicationController
 
 	def index
-		@friends = User.all
+		@user = User.find(session[:current_user_id])
 	end
 
 	def create
