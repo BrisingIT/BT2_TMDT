@@ -1,17 +1,19 @@
 <% for user in @user.friends%>
-<% @temp = User.find(user.friend_id)%>
-<div class="row card" style="margin-left: 150px; margin-right: 150px;">
-      <div class="container" style="margin-bottom: -10px; padding-top: 25px;">
-      <div class="col-sm-1">
-        <div class="text-xs-center"><img src="<%= @temp.avatar%>" class="img-circle" width="50" height="50"></div>
-      </div>
-      <div class="col-sm-11">
-        <div ><%= @temp.Username %></div>
-        <div ><%= @temp.Name %></div>
-        <p class="pull-xs-right" style="margin-right: 5px; margin-bottom: 5px;">
-          <a href="#", class="btn btn-primary", style= "padding: 2px 10px;" > Addfriend</a>
-        </p>
-      </div> 
+<% @temp = User.find_by_id(user.friend_id)%>
+<% if (@temp!=nil) %>
+  <div class="row card" style="margin-left: 150px; margin-right: 150px;">
+        <div class="container" style="margin-bottom: -10px; padding-top: 25px;">
+        <div class="col-sm-1">
+          <div class="text-xs-center"><img src="<%= @temp.avatar%>" class="img-circle" width="50" height="50"></div>
+        </div>
+        <div class="col-sm-11">
+          <div ><%= @temp.Username %></div>
+          <div ><%= @temp.Name %></div>
+          <div>
+            <%= link_to 'Unfriend', friends_path, method: => :delete, class: 'btn btn-danger', style: 'padding: 2px 10px;' %>
+          </div>
+        </div> 
+    </div>
   </div>
-</div>
+<% end %>
 <% end %>
