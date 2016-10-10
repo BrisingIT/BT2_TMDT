@@ -5,15 +5,17 @@ class FriendsController < ApplicationController
 	end
 
 	def create
-		friend = User.find_by_id(params[:friend_id])
-		current_user.friends << friend
-		direct_to "/"
+		user = User.find(session[:current_user_id])
+		@friends = user.friends.build(:friend_id => params[:friend_id])
+    	@friends.save
+		redirect_to "/"
 	end
 
 	def destroy
-		friend = Friend.find_by_user_id_friend_id(current_user_id,params[:friend_id])
-		friend.destroy
-		direct_to "/"
+		user = User.find(session[:current_user_id])
+		@friends = user.friendships.find(params[:id])
+  		@friends.destroy
+		redirect_to "/"
 	end
 
 end

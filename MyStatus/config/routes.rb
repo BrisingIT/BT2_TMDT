@@ -3,9 +3,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :users do
-    resources :friends
-  end
+  resources :users 
+  resources :friends
   get 'sessions' => 'sessions#create', as: :create
 
   get 'sessions/destroy'

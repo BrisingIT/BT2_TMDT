@@ -8,7 +8,7 @@
         <div ><%= user.Name %></div>
         <p class="pull-xs-right" style="margin-right: 5px; margin-bottom: 5px;">
           <%= link_to 'Info', user, class: 'btn btn-success', style: 'padding: 2px 10px;' %>
-          <a href="#", class="btn btn-primary", style= "padding: 2px 10px;" > Addfriend</a>
+          <%= link_to "Add Friend", friends_path(:friend_id => user), :method => :post, class: 'btn btn-success', style: 'padding: 2px 10px;'%>
           <%= link_to 'Unfriend', user, method: :delete, class: 'btn btn-danger', style: 'padding: 2px 10px;' %>
         </p>
       </div> 
