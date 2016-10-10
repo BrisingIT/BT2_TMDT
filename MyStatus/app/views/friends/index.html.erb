@@ -1,0 +1,24 @@
+<% @friends.each do |friend| %>
+<div class="row card" style="margin-left: 150px; margin-right: 150px;">
+  <div class="container" style="margin-bottom: -10px; padding-top: 25px;">
+      <div class="col-sm-1">
+        <div class="text-xs-center"><img src="<%= friend.avatar%>" class="img-circle" width="50" height="50"></div>
+      </div>
+      <div class="col-sm-11">
+        <div ><%= friend.Username %></div>
+        <div ><%= friend.Name %></div>
+        <p class="pull-xs-right" style="margin-right: 5px; margin-bottom: 5px;">
+          <a href="#", class="btn btn-primary", style= "padding: 2px 10px;" > Addfriend</a>
+
+          <% if current_user.friend?(friend) %>
+                <%= link_to 'Unfriend', user_friends_path(current_user_id, friend.id), {friend_id: friend.id}, method: :delete, class: 'btn btn-danger', style: 'padding: 2px 10px;' %>
+          <% else %>
+                <%= link_to "Add Friend", user_friends_path, params:{friend_id: friend.id}, :method => :post, class: 'btn btn-success', style: 'padding: 2px 10px;'%>
+          <% end %>
+          
+          
+        </p>
+      </div> 
+  </div>
+</div>
+<% end %>

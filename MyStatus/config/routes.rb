@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-
   resources :statuses do
     resources :comments
+  end
+
+  resources :users do
+    resources :friends
   end
   get 'sessions' => 'sessions#create', as: :create
 
