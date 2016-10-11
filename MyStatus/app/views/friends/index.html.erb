@@ -9,9 +9,9 @@
         <div class="col-sm-11">
           <div ><%= @temp.Username %></div>
           <div ><%= @temp.Name %></div>
-          <div>
-            <%= link_to 'Unfriend', friends_path, method: => :delete, class: 'btn btn-danger', style: 'padding: 2px 10px;' %>
-          </div>
+          <p class="pull-xs-right" style="margin-right: 5px; margin-bottom: 5px;">
+            <%= link_to 'Unfriend', friends_path, :method => :delete, class: 'btn btn-danger', style: 'padding: 2px 10px;' %>
+          </p>
         </div> 
     </div>
   </div>

@@ -12,7 +12,6 @@ class FriendsController < ApplicationController
 	end
 
 	def destroy
-		byebug
 		user = User.find(session[:current_user_id])
 		@friends = user.friendships.find(params[:id])
   		@friends.destroy
