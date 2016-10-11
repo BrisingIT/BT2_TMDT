@@ -25,8 +25,8 @@
                       <strong><%= @temp.Username %>: </strong> 
                       <%= comment.body %>
                       <div class="text-xs-right">
-                      <% if(comment.user_id==session[:current_user_id])%>
-                          <%= link_to 'Delete',[comment.status, comment], method: :delete, data: { confirm: 'Do you want destroy?' },class: 'btn btn-danger', style: 'padding: 2px 10px;'%>
+                      <% if(comment.user_id==session[:current_user_id] or status.user_id==session[:current_user_id])%>
+                          <%= link_to 'Delete',[comment.status, comment], method: :delete, data: { confirm: 'Do you want delete?' },class: 'btn btn-danger', style: 'padding: 2px 10px;'%>
                       <% elsif(comment.status_id==session[:current_user_id]) %>
                           <%= link_to 'Delete',[comment.status, comment], method: :delete, data: { confirm: 'Do you want destroy?' },class: 'btn btn-danger', style: 'padding: 2px 10px;'%>
                         <% end %>
