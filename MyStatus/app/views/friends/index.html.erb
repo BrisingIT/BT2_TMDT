@@ -1,6 +1,6 @@
 <% for user in @user.friends%>
 <% @temp = User.find_by_id(user.friend_id)%>
-<% if (@temp!=nil) %>
+<% if (@temp!=nil) and (user.friend_id != session[:current_user_id]) %>
   <div class="row card" style="margin-left: 150px; margin-right: 150px;">
         <div class="container" style="margin-bottom: -10px; padding-top: 25px;">
         <div class="col-sm-1">

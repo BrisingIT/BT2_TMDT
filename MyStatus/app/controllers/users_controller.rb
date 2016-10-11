@@ -37,6 +37,9 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+
+    @friends = @user.friends.build(:friend_id => session[:current_user_id])
+    @friends.save
   end
 
   # PATCH/PUT /users/1
