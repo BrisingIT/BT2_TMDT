@@ -13,8 +13,8 @@ class FriendsController < ApplicationController
 
 	def destroy
 		user = User.find(session[:current_user_id])
-		@friends = user.friendships.find(params[:id])
-  		@friends.destroy
+		@friendship = user.friends.find_by_friend_id(params[:id])
+  		@friendship.destroy
 		redirect_to :back
 	end
 
