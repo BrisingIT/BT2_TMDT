@@ -2,6 +2,12 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   # GET /users
   # GET /users.json
+  def authorize
+    unless current_user
+      redirect_to '/login'
+    end
+  end
+
   def index
     if params[:search].present?
       @users = User.where("Username like? or Name like?", "%#{params[:search]}%", "%#{params[:search]}%")

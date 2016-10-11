@@ -15,8 +15,6 @@ class StatusesController < ApplicationController
 
   # GET /statuses/new
   def new
-
-    # @statuses = Status.all.order('statuses.created_at desc').where("statuses.user_id like?","%#{session[:current_user_id]}%")
     @statuses = Status.joins("INNER JOIN friends ON friends.friend_id = statuses.user_id AND friends.user_id like '%#{session[:current_user_id]}%'").order('statuses.created_at desc')
     @status = Status.new
   end

@@ -1,5 +1,5 @@
 class FriendsController < ApplicationController
-
+	before_action :authorize
 	def index
 		@user = User.find(session[:current_user_id])
 	end
@@ -8,6 +8,11 @@ class FriendsController < ApplicationController
 		user = User.find(session[:current_user_id])
 		@friends = user.friends.build(:friend_id => params[:friend_id])
     	@friends.save
+
+    	user = User.find(params[:friend_id])
+    	@inverse_friend = user.friends.build(:friend_id => session[:current_user_id])
+    	@inverse_friend.save
+
 		redirect_to :back
 	end
 

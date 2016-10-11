@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
 	before_action :set_comment, only: [:edit, :destroy]
+    before_action :authorize
     def create
         @status = Status.find(params[:status_id])
         @comment = @status.comments.new(comment_params)
